@@ -1,17 +1,12 @@
-// import './fonts'
-
+// Client Entry Point
 import * as React from 'react'
-// import Helmet from './Helmet'
+import * as ReactDOM from 'react-dom'
+import Root from './root/application'
 
-import 'modules/ui/core/global.scss'
-import Page from 'modules/ui/core/page'
-import Routes from '../routes'
+const root = document.getElementById('react-root')
 
-import navbar from './navbar'
+// React 16.7 Concurrent Mode
+ReactDOM.createRoot(root).render(<Root />)
 
-export default function App() {
-  return <Page navbar={navbar}>
-    {/* <Helmet /> */}
-    <Routes />
-  </Page>
-}
+// React < 16.7
+// ReactDOM.render(<App />, root)

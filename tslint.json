@@ -3,10 +3,19 @@
     "@tgrx/tslint-config-tgr"
   ],
   "rules": {
-    "no-implicit-dependencies": [true, "dev", ["modules"]],
+    "no-implicit-dependencies": [
+      // config
+      true, "dev",
+      // src subdirectories - refer to paths list in tsconfig.json
+      [
+        "_config", "_server", "_app", "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils"
+      ]
+    ],
     "no-submodule-imports": [
+      // config
       true,
-      "modules"
+      // src subdirectories - refer to paths list in tsconfig.json
+      "_config", "_server", "_app", "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils"
     ]
   }
 }

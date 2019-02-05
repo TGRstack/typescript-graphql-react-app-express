@@ -1,0 +1,15 @@
+.center {
+  display: flex; /* establish flex container */
+  justify-content: center; /* center flex items horizontally */
+}
+.spaceBetween {
+  display: flex;
+  justify-content: space-between
+}
+
+.centerText {
+  text-align: center;
+}
+.uppercaseFirstLetter::first-letter {
+  text-transform: uppercase;
+}

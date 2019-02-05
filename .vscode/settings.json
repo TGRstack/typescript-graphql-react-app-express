@@ -1,60 +1,66 @@
 {
-  // Turn on excludes here
-  "files.exclude": {
-    // DOT FILES
-    ".babelrc": true,
-    ".gitignore": true,
-    ".npmignore": true,
-    ".npmrc": true,
-    ".nvmrc": true,
-    "jest.config.js": true,
-    "nodemon.json": true,
-    "package-scripts.js": true,
-    "tsconfig.jest.json": true,
-    "tsconfig.json": true,
-    "tslint.json": true,
+  // // Turn on excludes here
+  // "files.exclude": {
+  //   // DOT FILES
+  //   ".babelrc": true,
+  //   ".gitignore": true,
+  //   ".gitkeep": true,
+  //   ".npmignore": true,
+  //   ".npmrc": true,
+  //   ".nvmrc": true,
+  //   "jest.config.js": true,
+  //   "nodemon.json": true,
+  //   "package-scripts.js": true,
+  //   "package-lock.json": true,
+  //   "tsconfig.jest.json": true,
+  //   // "tsconfig.json": true,
+  //   // "tslint.json": true,
 
-    // FOLDERS
-    "**/.netlify": true,
-    "**/.vscode": true,
-    "**/bin": true,
-    "**/build": true,
-    "**/dist": true,
-    "**/db": true,
-    "**/jest": true,
-    "**/lib": true,
-    "**/node_modules": true,    // hide all folders that doesn't start with '@t'
-    "**/node_modules/.*": true,
-    "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
-    "**/node_modules/@[abcdefghijklmnopqrsuvwxyz]*": true,
-    // "**/webpack": true,
-  },
-  // Turn off excludes here
-  "search.exclude": {
-    // DOT FILES
-    ".babelrc": false,
-    ".gitignore": false,
-    ".npmignore": false,
-    ".npmrc": false,
-    ".nvmrc": false,
-    "jest.config.js": false,
-    "nodemon.json": false,
-    "package-scripts.js": false,
-    "tsconfig.jest.json": false,
-    "tsconfig.json": false,
-    "tslint.json": false,
+  //   // GENERATED FILES
+  //   "*.scss.d.ts": true,
+  //   "*.css.d.ts": true,
 
-    // FOLDERS
-    "**/.netlify": false,
-    "**/.vscode": false,
-    // "**/bin": false,
-    // "**/build": false,
-    // "**/dist": false,
-    // "**/db": false,
-    // "**/jest": false,
-    // "**/lib": false,
-    "**/webpack": false,
-  },
+  //   // FOLDERS
+  //   "**/.netlify": true,
+  //   "**/.vscode": true,
+  //   "**/bin": true,
+  //   "**/build": true,
+  //   "**/dist": true,
+  //   "**/db": true,
+  //   "**/jest": true,
+  //   "**/lib": true,
+  //   // "**/webpack": true,
+  //   "**/node_modules": true,    // hide all folders that doesn't start with '@t'
+  //   "**/node_modules/.*": true,
+  //   "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
+  //   "**/node_modules/@[abcdefghijklmnopqrsuvwxyz]*": true,
+  // },
+  // // Turn off excludes here
+  // "search.exclude": {
+  //   // DOT FILES
+  //   ".babelrc": false,
+  //   ".gitignore": false,
+  //   ".npmignore": false,
+  //   ".npmrc": false,
+  //   ".nvmrc": false,
+  //   "jest.config.js": false,
+  //   "nodemon.json": false,
+  //   "package-scripts.js": false,
+  //   "tsconfig.jest.json": false,
+  //   "tsconfig.json": false,
+  //   "tslint.json": false,
+
+  //   // FOLDERS
+  //   "**/.netlify": false,
+  //   "**/.vscode": false,
+  //   // "**/bin": false,
+  //   // "**/build": false,
+  //   // "**/dist": false,
+  //   // "**/db": false,
+  //   // "**/jest": false,
+  //   // "**/lib": false,
+  //   // "**/webpack": false,
+  // },
 
   // ToDos:
   // https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight

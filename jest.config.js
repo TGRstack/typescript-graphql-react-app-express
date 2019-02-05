@@ -1,3 +1,20 @@
+require('autostrip-json-comments');
+const tsconfig = require("./tsconfig.json")
+const moduleNameMapper = (() => {
+  const tsModuleNames = require("tsconfig-paths-jest")(tsconfig)
+  delete tsModuleNames['(.*)']
+
+  const otherModuleNames = {
+    "\\.(s?css|less)$": "identity-obj-proxy", // mock css
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+    "<rootDir>/jest/mocks/fileMock.js",   // mock files
+  }
+  return {
+    ...tsModuleNames,
+    ...otherModuleNames,
+  }
+})()
+
 module.exports = {
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
@@ -25,9 +42,5 @@ module.exports = {
       "tsConfigFile": "tsconfig.jest.json"
     }
   },
-  "moduleNameMapper": {
-    "\\.(s?css|less)$": "identity-obj-proxy", // mock css
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "<rootDir>/jest/mocks/fileMock.js",   // mock files
-  },
+  moduleNameMapper,
 }

@@ -1,0 +1,19 @@
+@import './theme.scss';
+
+html {
+  box-sizing: border-box;
+  /* font-family: Arial, sans-serif; */
+  font-family: Roboto,  Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #261e2b;
+}
