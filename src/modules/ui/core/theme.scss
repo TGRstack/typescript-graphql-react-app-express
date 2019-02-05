@@ -1,0 +1,54 @@
+// Pick theme colors at
+// https://material.io/tools/color/#!/
+
+$primary: #004d40;
+$primary-light: #39796b;
+$primary-dark: #00251a;
+
+$secondary: #ff9800;
+$secondary-light: #ffc947;
+$secondary-dark: #c66900;
+
+$primary-text: #ffffff;
+$secondary-text: #000000;
+
+$primary-bg: #E1E2E1;
+$secondary-bg: #F5F5F6;
+
+.fill_primary {
+  background-color: $primary;
+  color: $primary-text;
+  fill:  $primary-text;
+}
+.fill_secondary {
+  background-color: $secondary;
+  color: $secondary-text;
+  fill:  $secondary-text;
+}
+
+.bg_primary {
+  background-color: $primary-bg;
+  color: $secondary-text;
+}
+.bg_secondary {
+  background-color: $secondary-bg;
+  color: $secondary-text;
+}
+
+.accent_primary {
+  background-color: $primary-light;
+  color: $primary-text;
+}
+.accent_secondary {
+  background-color: $secondary-light;
+  color: $secondary-text;
+}
+
+.accent_primary--dark {
+  background-color: $primary-dark;
+  color: $primary-text;
+}
+.accent_secondary--dark {
+  background-color: $secondary-dark;
+  color: $secondary-text;
+}

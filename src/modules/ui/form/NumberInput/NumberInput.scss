@@ -1,0 +1,31 @@
+.container {
+  input {
+    width: 400px;
+  }
+}
+
+.text {
+  -webkit-appearance: textfield;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  padding: 1px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  font-size: 13px;
+  font-family: Roboto;
+  display: flex;
+
+  span {
+    padding-top: 1px;
+  }
+
+  input {
+    -webkit-appearance: none;
+    border: none;
+    padding-left: 2px;
+    font-weight: 600;
+  }
+}
