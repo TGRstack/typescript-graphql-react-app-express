@@ -2,20 +2,24 @@
   <h1 align='center'>Typescript GraphQL React App w/ Express | TGRStack</h1>
 </p>
 
-[![Known Vulnerabilities](https://snyk.io/test/github/TGRstack/react-app/badge.svg)](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-skeleton)
+[![Known Vulnerabilities](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express/badge.svg)](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express)
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-3.0.1-blue.svg?style=flat-square)](https://github.com/Microsoft/TypeScript)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3.3.1-blue.svg?style=flat-square)](https://github.com/Microsoft/TypeScript)
 [![React](https://img.shields.io/badge/React-16.7.0-blue.svg?style=flat-square)](https://github.com/facebook/react)
-[![Apollo](https://img.shields.io/badge/Apollo-2.3.8-blue.svg?style=flat-square)](https://github.com/apollographql/apollo-client)
-[![WebPack](https://img.shields.io/badge/WebPack-4.12.2-blue.svg?style=flat-square)](https://github.com/webpack/webpack/)
-[![Node](https://img.shields.io/badge/Node-11.4.0-blue.svg?style=flat-square)](https://nodejs.org/en/)
+[![Jest](https://img.shields.io/badge/Jest-24.1.0-blue.svg?style=flat-square)](https://github.com/kulshekhar/ts-jest)
+[![ApolloClient](https://img.shields.io/badge/ApolloClient-2.4.12-blue.svg?style=flat-square)](https://github.com/apollographql/apollo-client)
+[![WebPack](https://img.shields.io/badge/WebPack-4.29.1-blue.svg?style=flat-square)](https://github.com/webpack/webpack/)
+[![Node](https://img.shields.io/badge/Node-11.9.0-blue.svg?style=flat-square)](https://nodejs.org/en/)
 
 [![TSLint](https://img.shields.io/badge/TS_Lint-5.11.0-8400ff.svg?style=flat-square)](https://github.com/palantir/tslint/)
-[![TS-Jest](https://img.shields.io/badge/TS_Jest-22.4.6-8400ff.svg?style=flat-square)](https://github.com/kulshekhar/ts-jest)
+[![TS-Jest](https://img.shields.io/badge/TS_Jest-23.10.5-8400ff.svg?style=flat-square)](https://github.com/kulshekhar/ts-jest)
 
 [![NPS friendly](https://img.shields.io/badge/NPS-friendly-brightgreen.svg?style=flat-square)](https://github.com/kentcdodds/nps)
 [![Commitizen friendly](https://img.shields.io/badge/Commitizen-friendly-brightgreen.svg?style=flat-square)](https://commitizen.github.io/cz-cli/)
 [![Semver friendly](https://img.shields.io/badge/SemVer-friendly-brightgreen.svg?style=flat-square)](https://docs.npmjs.com/about-semantic-versioning)
+
+[![ExpressServer](https://img.shields.io/badge/Express_Server-4.16.4-red.svg?style=flat-square)](https://github.com/expressjs/express)
+[![ApolloServer](https://img.shields.io/badge/Apollo_Server-2.3.3-red.svg?style=flat-square)](https://github.com/apollographql/apollo-server)
 
 ## About
 
@@ -39,18 +43,19 @@ This starter kit is a launching point for TS React module development. Running t
 - [x] 🚀  ES2018+ support syntax that is stage-3 or later in the TC39 process.
 - [x] 🎛  Preconfigured to support development and optimized production builds
 - [x] 🎶  `typescript` incremental returns reducing development bugs
-- [x] :gem:  `apollo-client` w/ `link-state` instead of `react-redux`
+- [x] 📻  `apollo-client` w/ `link-state` instead of `react-redux`
+- [x] 🌐  `express-server` loose downstream of `TGRstack/skeleton-ts-service`
 
 ### React
 
-- [x] :dragon:  React 16+
-- [x] :space_invader: HMR reloads the Changed Code w/o refreshing the entire page
+- [x] 🐉  React 16+
+- [x] 👾 HMR reloads the Changed Code w/o refreshing the entire page
 
 ### CSS
 
-- [x] :sunrise: `typings-for-css-modules-loader` replaces 'css-loader' for webpack
-- [x] :carousel_horse: `typings-for-css-modules-loader` generates d.ts for css files
-- [x] :city_sunrise: `sass-loader` adds vars, imports, heirarchies to css.
+- [x] 🌅 `typings-for-css-modules-loader` replaces 'css-loader' for webpack
+- [x] 🎠 `typings-for-css-modules-loader` generates d.ts for css files
+- [x] 🌇 `sass-loader` adds vars, imports, heirarchies to css.
 - [ ] replace sass support w/ stylable.io
 
 ### Style
@@ -91,21 +96,22 @@ This starter kit is a launching point for TS React module development. Running t
 To use the starter-kit to build your own ts-module run these commands:
 
 ```bash
-git clone https://github.com/Falieson/2018-typescript-module.git my-project
+git clone https://github.com/TGRstack/typescript-graphql-react-app-express my-project
 cd my-project
 rm -rf .git && git init
-git commit -m "INIT'd w/ Falieson's 2018-typescript-module@SHA4985"
+# nps c # for nps commit instead of running git commit
+git commit -m "INIT'd w/ TGRstack/typescript-graphql-react-app-express@SHA4985"
 npm install
 nps test
 nps
 ```
 
 Open package.json and reset following fields:
+
 ```text
 - name
 - version ( It is recommended to start from 1.0.0 )
 - description
-- main ( "umd/typescript-lib-starter.js" => "umd/{name}.js" )
 - repository.url
 - author
 - license ( use whatever you want )
@@ -129,8 +135,8 @@ src/
 
 ## Stack
 
-- [TS-React-App](https://github.com/Falieson/2018-typescript-react-app)
-- [TS-GraphqL-Endpoint](https://github.com/Falieson/2018-typescript-graphql-endpoint)
+- [TS-React-App](https://github.com/TGRstack/typescript-graphql-react-app)
+- [TS-Apollo(GraphQL)-Endpoint(API)](https://github.com/TGRstack/typescript-apollo-endpoint)
 - [TS-Module](https://github.com/Falieson/2018-typescript-module)
 
 ## Docs

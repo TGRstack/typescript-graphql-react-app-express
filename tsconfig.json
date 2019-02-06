@@ -22,20 +22,21 @@
     // "declaration": true,                           /* Generates corresponding '.d.ts' file. */
     "baseUrl": ".",                           /* Base directory to resolve non-absolute module names. */
     "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-      "*": ["node_modules/*", "src/*",],
+      "*":              ["node_modules/*", "src/*",],
       // list of submodules matching tslint
-      "_config/*": ["src/config/*"],
-      "_server/*": ["src/server/*"],
+      "_server/*":      ["src/server/*"],
+      "_app/*":         ["src/app/*"],
 
       // implicitely app modules
-      "_assets/*": ["src/app/assets/*"],
-      "_components/*": ["src/app/components/*"],
-      "_gql/*": ["src/app/gql/*"],
-      "_modules/*": ["src/app/modules/*"],
-      "_root/*": ["src/app/root/*"],
-      "_routes/*": ["src/app/routes/*"],
-      "_types/*": ["src/app/types/*"],
-      "_utils/*": ["src/app/utils/*"],
+      "_assets/*":      ["src/app/assets/*"],
+      "_config/*":      ["src/app/config/*"],
+      "_components/*":  ["src/app/components/*"],
+      "_gql/*":         ["src/app/gql/*"],
+      "_modules/*":     ["src/app/modules/*"],
+      "_root/*":        ["src/app/root/*"],
+      "_routes/*":      ["src/app/routes/*"],
+      "_types/*":       ["src/app/types/*"],
+      "_utils/*":       ["src/app/utils/*"],
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

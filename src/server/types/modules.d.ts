@@ -1,0 +1,1 @@
+// ex. declare module 'colors'

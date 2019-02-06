@@ -19,7 +19,9 @@ module.exports = {
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
-  "setupTestFrameworkScriptFile": "<rootDir>/jest/jest.setup.js",
+  "setupFilesAfterEnv": [
+    "<rootDir>/jest/jest.setup.js",
+  ],
   "testURL": 'http://localhost',
   "testPathIgnorePatterns": ["/node_modules/", "/.reference/", "/build/", "/scripts/"],
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec)s?)\\.(jsx?|tsx?)$",
@@ -37,9 +39,9 @@ module.exports = {
   ],
   "globals": {
     "ts-jest": {
-      "enableTsDiagnostics": false,
-      "skipBabel": true,
-      "tsConfigFile": "tsconfig.jest.json"
+      "diagnostics": false,
+      "babelConfig": true,
+      "tsConfig": "tsconfig.jest.json"
     }
   },
   moduleNameMapper,

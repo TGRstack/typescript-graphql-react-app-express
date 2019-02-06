@@ -8,14 +8,16 @@
       true, "dev",
       // src subdirectories - refer to paths list in tsconfig.json
       [
-        "_config", "_server", "_app", "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils"
+        "_server",
+        "_app", "_config",  "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils",
       ]
     ],
     "no-submodule-imports": [
       // config
       true,
       // src subdirectories - refer to paths list in tsconfig.json
-      "_config", "_server", "_app", "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils"
+      "_server",
+      "_app", "_config",  "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils",
     ]
   }
 }
