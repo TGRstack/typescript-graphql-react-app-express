@@ -1,7 +1,7 @@
 const Dotenv = require('dotenv-webpack');
+const fs = require('fs')
 const path = require('path')
-const WriteFilePlugin = require('write-file-webpack-plugin');
-// const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const paths = require('./paths')
 
@@ -15,7 +15,7 @@ const typescript = (() => {
     transpileOnly: true,
   }
   const loader = {
-    test: /\.tsx?$/,
+    test: /\.ts$/,
     include: paths.src._,
     use: [
       {
@@ -30,47 +30,27 @@ const typescript = (() => {
       }
     ]
   }
-  // const tsPaths = new TsconfigPathsPlugin({
-  //   configFile,
-  //   extensions: [".ts", ".tsx"],
-  // })
+  const tsPaths = new TsconfigPathsPlugin({
+    configFile,
+  })
 
   return {
     loader,
-    // tsPaths,
+    // paths: tsPaths,
   }
 })()
 
-
-// ## CSS-modules w/ Typescript
-// https://medium.com/@kswanie21/css-modules-sass-in-create-react-app-37c3152de9
-const moduleCss = {
-  test: /\.s?css$/,
-  use: [
-    'style-loader',
-    {
-      loader: 'typings-for-css-modules-loader',
-      options: {
-        modules: true,
-        importLoaders: 2,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]',
-      }
-    },
-    'sass-loader',
-  ],
-}
-
-// ## STYLES
-// support global files
-const globalCss = {
-  test: /^global.s?css/,
-  loaders: ["style-loader", 'sass-loader',],
-}
+// ## GRAPHQL
+// const graphql = {
+//   test: /\.(graphql|gql)$/,
+//   exclude: /node_modules/,
+//   loader: 'graphql-tag/loader',
+// }
 
 // ## FILES like csv and images
 const files = {
   // test: /\.(png|jpg|gif)$/,
-  exclude: [/\.jsx?$/, /\.tsx?$/, /\.s?css$/, /\.html$/, /\.json$/],
+  exclude: [/\.js$/, /\.ts$/, /\.json$/],
   use: [
     {
       loader: 'file-loader',
@@ -87,6 +67,32 @@ const files = {
   ]
 }
 
+// # PLUGINS
+const dotEnvOpts = (() => {
+  /** dotEnvIfExists
+   *
+   * Uses .env.development for default values
+   */
+  const dotEnvIfExists = (() => {
+    const envPath = path.join(paths._, '.env')
+    const defaultEnvPath = envPath+'.development'
+
+    const envExists = fs.existsSync(envPath)
+    return envExists
+      ? envPath
+      : defaultEnvPath
+  })()
+
+  return {
+    path: dotEnvIfExists, // path.join(paths._, '.env'), //  dotEnvIfExists,
+    // load '.env.development' to verify the '.env' variables are all set.
+    safe: path.join(paths._, '.env')+'.development',
+    // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+    systemvars: true,
+    // hide any errors
+    // silent: true
+  }
+})()
 
 module.exports = {
   node: {
@@ -94,27 +100,18 @@ module.exports = {
     __filename: false,
   },
   resolve: {
-    extensions: ['.csv', '.ts', '.tsx', '.js', '.json', '.jsx'],
-    modules: [paths.src._, paths.node_modules],
-    // plugins: [
-    //   typescript.paths,
-    // ]
+    extensions: ['.csv', '.ts', '.js', '.json',],
+    modules: ['src', 'node_modules'],
   },
   module: {
     rules: [
       typescript.loader,
-      globalCss,
-      moduleCss,
+      // typescript.paths,
+      // graphql,
       files,
     ],
   },
   plugins: [
-    new WriteFilePlugin({ log: true }),
-    new Dotenv({
-      path: path.join(paths._, '.env'),
-      safe: true,    // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
-      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
-      // silent: true   // hide any errors
-    }),
+    new Dotenv(dotEnvOpts)
   ],
-};
+}

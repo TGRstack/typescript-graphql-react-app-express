@@ -1,33 +1,36 @@
 const path = require('path');
 
-// const root = process.env.NODE_ENV === 'production'
-//   ? process.cwd()
-//   : path.resolve(process.cwd(), 'build', 'client')
-// const cwd = path.resolve(process.cwd())
 const rootPath = path.resolve(__dirname, '..')
-const buildPath = path.resolve(rootPath, 'build')
 const srcPath = path.resolve(rootPath, 'src')
 
-const build = {
-  _: buildPath,
-  client: path.resolve(buildPath),
-}
+const SERVER = ''
 
-const src = {
-  _: srcPath,
-  app: {
-    _: path.join(srcPath),
-    entry: path.join(srcPath, 'index.tsx'),
-  },
-  client : {
-    _: path.join(srcPath, 'client'),
-    template: path.join(srcPath, 'client', 'index.template.html'),
-  },
-}
+const build = (() => {
+  const _build = path.resolve(rootPath, 'build')
+  const _server = path.resolve(_build, SERVER)
+
+  return {
+    _: _build,
+    server: {
+      _: _server,
+    },
+  }
+})()
+
+const src = (() => {
+  const _server = path.join(srcPath, SERVER)
+  return {
+    _: srcPath,
+    server: {
+      _: _server,
+      entry: path.join(_server,  'index.ts'),
+    }
+  }
+})()
 
 module.exports = {
   _: rootPath,
   build,
   src,
-  node_modules: path.resolve(rootPath, 'node_modules')
+  SERVER,
 }
