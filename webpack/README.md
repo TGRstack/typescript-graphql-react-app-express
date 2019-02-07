@@ -1,11 +1,14 @@
 # Webpack Structure
 
 ```text
-| Webpack-Merge
-├── Common
-│     ├──  Server (Common)
-│         ├──    Dev (Server)
-│         ├──    Prod (Server)
+WebpackMerge
+  └── Common
+      ├──  Client (Common)
+      │    ├──    Dev (Client)
+      │    ├──    Prod (Client)
+      └──  Server (Common)
+           ├──    Dev (Server)
+           └──    Prod (Server)
 ```
 
 ## Server

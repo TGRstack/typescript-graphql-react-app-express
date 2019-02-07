@@ -30,27 +30,22 @@ const typescript = (() => {
       }
     ]
   }
+  // return loader
   const tsPaths = new TsconfigPathsPlugin({
+    logLevel: 'info',
     configFile,
   })
 
   return {
     loader,
-    // paths: tsPaths,
+    paths: tsPaths,
   }
 })()
-
-// ## GRAPHQL
-// const graphql = {
-//   test: /\.(graphql|gql)$/,
-//   exclude: /node_modules/,
-//   loader: 'graphql-tag/loader',
-// }
 
 // ## FILES like csv and images
 const files = {
   // test: /\.(png|jpg|gif)$/,
-  exclude: [/\.js$/, /\.ts$/, /\.json$/],
+  exclude: [/\.jsx?$/, /\.tsx?$/, /\.s?css$/, /\.html$/, /\.json$/],
   use: [
     {
       loader: 'file-loader',
@@ -100,18 +95,25 @@ module.exports = {
     __filename: false,
   },
   resolve: {
-    extensions: ['.csv', '.ts', '.js', '.json',],
+    extensions: ['.csv', '.ts', '.tsx', '.js', '.json', '.jsx'],
     modules: ['src', 'node_modules'],
   },
   module: {
     rules: [
       typescript.loader,
-      // typescript.paths,
       // graphql,
       files,
     ],
   },
   plugins: [
-    new Dotenv(dotEnvOpts)
+    new Dotenv(dotEnvOpts),
+    typescript.paths
   ],
 }
+
+// ## GRAPHQL
+// const graphql = {
+//   test: /\.(graphql|gql)$/,
+//   exclude: /node_modules/,
+//   loader: 'graphql-tag/loader',
+// }

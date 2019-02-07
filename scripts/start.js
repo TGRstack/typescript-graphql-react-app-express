@@ -1,17 +1,25 @@
 const { concurrent, series, } = require('nps-utils') // rimraf, setColors
-const paths = require('./_paths.js')
 
 module.exports = {
-  default: series.nps('scrub.build', 'start.dev'),
+  default: series.nps('build.scrub', 'start.dev'),
   dev: concurrent({
+    build: {
+      script: 'nps build.watch',
+      color: 'white.bold',
+    },
     server: {
-      script: 'nps start.server',
-      color: 'green.bold',
+      script: 'sleep 5 && nps server',
+      color: 'magenta.bold',
+    },
+    mongo: {
+      script: 'nps mongo.server',
+      color: 'red.bold',
     },
     lint: {
       script: 'nps lint.watch',
       color: 'yellow.bold',
     },
   }),
-  server: 'webpack-dev-server --config '+paths.wp.server,
+  server: 'nps server',
+  production: 'nps server.production',
 }

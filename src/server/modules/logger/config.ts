@@ -47,21 +47,25 @@ const config = ({isProd}: {isProd: boolean}) => {
   //   wfPrintJson,
   // )
 
+  const devConsole = {
+    level: 'silly', // tslint:disable-next-line object-literal-sort-keys
+    format: wfConsole,
+    handleExceptions: true,
+    json: false,
+  }
+  const prodConsole = {
+    level: 'info', // tslint:disable-next-line object-literal-sort-keys
+    format: wfConsole,
+    handleExceptions: true,
+    json: false,
+  }
+
+  const console = isProd ? prodConsole : devConsole
+
   return {
-    console: {
-      dev: {
-        level: 'silly', // tslint:disable-next-line object-literal-sort-keys
-        format: wfConsole,
-        handleExceptions: true,
-        json: false,
-      },
-      prod: {
-        level: 'info', // tslint:disable-next-line object-literal-sort-keys
-        format: wfConsole,
-        handleExceptions: true,
-        json: false,
-      },
-    },
+    outputDir,
+
+    console,
     file: {
       all: {
         level: 'silly', // tslint:disable-next-line object-literal-sort-keys
@@ -91,7 +95,6 @@ const config = ({isProd}: {isProd: boolean}) => {
         maxsize,
       },
     },
-    outputDir,
   }
 }
 

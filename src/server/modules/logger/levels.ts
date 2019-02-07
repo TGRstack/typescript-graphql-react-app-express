@@ -37,10 +37,8 @@ export const colors = {
 //   ...
 //   silly:   7,
 // }
-const levels = Object.keys(colors)
+export const levels = Object.keys(colors)
   .reduce((prev, next, index) => {
     prev[next] = index
     return prev
   },      {})
-
-export default levels

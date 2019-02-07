@@ -1,4 +1,3 @@
-// TODO: make Apollo errors accessible via the logger module
 import * as fs from 'fs'
 // import * as stream from 'stream'
 import * as winston from 'winston'
@@ -8,7 +7,6 @@ class WinstonLogger {
   app: any    // tslint:disable-line no-any // winston.
   config: any // tslint:disable-line no-any
   levels: any // tslint:disable-line no-any
-  isProd: boolean // tslint:disable-line no-any
 
   // FIXME: morgan logs written into winston
   // create a stream object with a 'write' function that will be used by `morgan`
@@ -30,19 +28,17 @@ class WinstonLogger {
   // }
 
   constructor({
-    config, levels, isProd
+    config, levels,
   }: {
-    config: any, levels: any, isProd: boolean // tslint:disable-line no-any
+    config: any, levels: any, // tslint:disable-line no-any
   }) {
-    // instantiate new loggers with these settings
-    this.setup()
+    // NOTE: order matters, set func args first
     this.config = config
     this.levels = levels
-    this.isProd = isProd
+    // this.isProd = isProd
 
-    const consoleConfig = isProd
-    ? config.console.prod
-    : config.console.dev
+    // instantiate new loggers with these settings
+    this.setup(config.outputDir)
 
     // Custom loglevels and corresponding colors
     winston.addColors(levels.colors)
@@ -50,7 +46,7 @@ class WinstonLogger {
     // tslint:disable-next-line no-any
     const app = (winston as any).createLogger({
       exitOnError: false, // do not exit on handled exceptions
-      levels,
+      levels: levels.levels,
       transports: [
         // - Write all logs to `all.log`
         new File(config.file.all),
@@ -59,7 +55,7 @@ class WinstonLogger {
         // - Write all logs error (and below) to `error.log`.
         new File(config.file.error),
         // - Console all logs isProd? info : silly
-        new Console(consoleConfig)
+        new Console(config.console)
       ],
     })
 
@@ -74,8 +70,7 @@ class WinstonLogger {
     })
   }
 
-  private setup() {
-    const {outputDir} = this.config
+  private setup(outputDir: string) {
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir)
     }

@@ -1,11 +1,12 @@
-import { isProd } from '_config/environment'
+import serverConfig from '!server/config/'
 import config from './config'
-import levels from './levels'
+import * as levels from './levels'
 import winston from './winston'
+
+const {isProd} = serverConfig
 
 const logger = new winston({
   config: config({isProd}),
-  isProd,
   levels,
 }).app
 
