@@ -82,10 +82,12 @@ This starter kit is a launching point for TS React module development. Running t
 - [ ] 😎  HappyPack
 - [ ] 🤖  Auto generated Vendor DLL for smooth development experiences
 - [ ] 🍃  Tree-shaking
+- [x] 👻  DotEnv w/ friendly features [docs: DotEnv](#docs-dotenv)
+- [x] ⛷  Module Aliasing [docs: Module Aliasing](#docs-module-aliases)
 
 ### Utils
 
-- [x] 🎮  `nps` node-package-scripts removes the limitation of package.json enabling JS & //comments .  Modify `/package-scripts.js` and use `nps <command>` instead of `npm run <command>`.
+- [x] 🎮  `nps` npm scripts w/o a bloated package.json and limits of json [docs: NPS](#docs-nps).
 - [x] 🙌  `commitizen` to help us generate beautifully formatted and consistent commit messages.
 - [x] 😹  `cz-emoji` is a plugin for commitizen that adds emoji to the commit template.
 - [x] 🏆  `standard-version` is a replacement for `npm version` with automatic CHANGELOG generation
@@ -143,3 +145,27 @@ src/
 
 - [HowTo make a TS Module w/ Declarations](http://www.tgrstack.com/#ts-module_articles)
 - [Changelog](/CHANGELOG.md)
+
+### docs-dotenv
+
+Webpack is configured to use a DotEnv plugin and uses DotEnv files in specific ways.
+
+1. Everything in `.env.example` is considered a required .env field (compiler complains)
+2. `.env.development` will be used if `.env` is missing
+3. In production just use .env, this is ignored by git (as it should be!)
+
+### docs-module-aliases
+
+Module aliases are defined in 2 places because of an issue w/ [tsconfig-paths-webpack-plugin](https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/34)
+
+- Aliasing for typescript, ts-node, ts-jest, the IDE are defined in `tsconfig.json` as expected.
+- Since the webpack plugin isn't working, aliases are duplicated in `./webpack/config.js`.
+
+**Any changes to one requires a change to the other!**
+
+### docs-nps
+
+`node-package-scripts` removes the limitation of package.json enabling Javascript and //comments. 
+
+To change scripts modify `/scripts/` and use `nps <command>` instead of `npm run <command>`.
+The entry point for nps is `./package-scripts.js` which routes to `scripts/index.js` which routes to the friendlier `scripts/__index.js`.

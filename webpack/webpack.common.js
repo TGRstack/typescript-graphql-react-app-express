@@ -1,9 +1,10 @@
 const Dotenv = require('dotenv-webpack');
 const fs = require('fs')
 const path = require('path')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+// const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const paths = require('./paths')
+const {alias, isProd} = require('./config')
 
 // #  RULES
 // ## TS w/ BABEL
@@ -15,7 +16,7 @@ const typescript = (() => {
     transpileOnly: true,
   }
   const loader = {
-    test: /\.ts$/,
+    test: /\.tsx?$/,
     include: paths.src._,
     use: [
       {
@@ -31,14 +32,14 @@ const typescript = (() => {
     ]
   }
   // return loader
-  const tsPaths = new TsconfigPathsPlugin({
-    logLevel: 'info',
-    configFile,
-  })
+  // const tsPaths = new TsconfigPathsPlugin({
+  //   logLevel: 'info',
+  //   configFile,
+  // })
 
   return {
     loader,
-    paths: tsPaths,
+    // paths: tsPaths,
   }
 })()
 
@@ -50,12 +51,10 @@ const files = {
     {
       loader: 'file-loader',
       options: {
-        name (file) {
-          if (process.env === 'development' || process.env === undefined) {
-            return '[path][name].[ext]'
-          }
+        name () {
+          if(isProd) return '[hash].[ext]'
 
-          return '[hash].[ext]'
+          return '[path][name].[ext]'
         }
       }
     }
@@ -97,6 +96,7 @@ module.exports = {
   resolve: {
     extensions: ['.csv', '.ts', '.tsx', '.js', '.json', '.jsx'],
     modules: ['src', 'node_modules'],
+    alias,
   },
   module: {
     rules: [
@@ -107,7 +107,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv(dotEnvOpts),
-    typescript.paths
+    // typescript.paths
   ],
 }
 

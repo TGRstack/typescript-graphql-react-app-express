@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { uuid } from '_modules/utils/string'
+import { guid } from '_modules/utils/string/'
 import { INumberInput } from '.'
 import * as S from './NumberInput.scss'
 
@@ -20,7 +20,7 @@ export default class NumberInput extends React.Component<IProps, IState> {
     name: 'text',
     placeholder: 'put some text in here....',
   }
-  id = uuid()
+  id = guid()
 
   constructor(props: IProps) {
     super(props)

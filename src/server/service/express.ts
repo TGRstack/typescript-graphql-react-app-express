@@ -36,6 +36,7 @@ export default class Express {
     // Express
     middleware.expressSecurity(app)
     middleware.expressLogger(app)
+    middleware.expressReact(app)
   }
 
   setupConfig() {
@@ -62,14 +63,13 @@ export default class Express {
     const {config, server, serverConfig} = this
 
     // Create a http/ws listener for our express app.
-    const ws = server.createServer(...serverConfig)
-    const listener = ws.listen({port: config.PORT}, () => {
-      // middleware.graphqlWs(ws)
+    const appliance = server.createServer(...serverConfig)
+    appliance.listen(config.PORT)
 
-      // EVERYTHING BOOTED SUCCESFULLY
-      // tslint:disable-next-line no-console
-      Logger.info(SUCCESS_MESSAGE())
-    })
-    return listener
+    // EVERYTHING BOOTED SUCCESFULLY
+    // tslint:disable-next-line no-console
+    Logger.info(SUCCESS_MESSAGE())
+
+    return appliance
   }
 }

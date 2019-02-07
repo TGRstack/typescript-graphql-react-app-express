@@ -1,6 +1,11 @@
 {
-  // // Turn on excludes here
+  // HIDE THINGS THAT ARE RARELY USED
+  // Turn on excludes here
   // "files.exclude": {
+  //   // a pretty important folder
+  //   "src/server/": true,
+  //   "scripts/": true,
+
   //   // DOT FILES
   //   ".babelrc": true,
   //   ".gitignore": true,
@@ -13,8 +18,8 @@
   //   "package-scripts.js": true,
   //   "package-lock.json": true,
   //   "tsconfig.jest.json": true,
-  //   // "tsconfig.json": true,
-  //   // "tslint.json": true,
+  //   "tsconfig.json": true,
+  //   "tslint.json": true,
 
   //   // GENERATED FILES
   //   "**/*.scss.d.ts": true,
@@ -29,7 +34,8 @@
   //   "**/db": true,
   //   "**/jest": true,
   //   "**/lib": true,
-  //   // "**/webpack": true,
+  //   "**/logs": true,
+  //   "**/webpack": true,
   //   "**/node_modules": true,    // hide all folders that doesn't start with '@t'
   //   "**/node_modules/.*": true,
   //   "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
@@ -38,28 +44,35 @@
   // // Turn off excludes here
   // "search.exclude": {
   //   // DOT FILES
-  //   ".babelrc": false,
-  //   ".gitignore": false,
-  //   ".npmignore": false,
-  //   ".npmrc": false,
-  //   ".nvmrc": false,
-  //   "jest.config.js": false,
-  //   "nodemon.json": false,
-  //   "package-scripts.js": false,
-  //   "tsconfig.jest.json": false,
+  //   // ".babelrc": false,
+  //   // ".gitignore": false,
+  //   // "**/.gitkeep": false,
+  //   // ".npmignore": false,
+  //   // ".npmrc": false,
+  //   // ".nvmrc": false,
+  //   // "jest.config.js": false,
+  //   // "nodemon.json": false,
+  //   // "package-scripts.js": false,
+  //   // "package-lock.json": false,
+  //   // "tsconfig.jest.json": false,
   //   "tsconfig.json": false,
   //   "tslint.json": false,
 
   //   // FOLDERS
-  //   "**/.netlify": false,
-  //   "**/.vscode": false,
+  //   // "**/.netlify": false,
   //   // "**/bin": false,
   //   // "**/build": false,
   //   // "**/dist": false,
   //   // "**/db": false,
   //   // "**/jest": false,
   //   // "**/lib": false,
+  //   // "**/logs": false,
   //   // "**/webpack": false,
+
+  //   // If you hide the folder and set this to true
+  //   // you have to open the workspace settings from
+  //   // ctrl+shift+p => workspace settings
+  //   "**/.vscode": false,
   // },
 
   // ToDos:

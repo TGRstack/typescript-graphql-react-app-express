@@ -66,7 +66,7 @@ class WinstonLogger {
   private init() {
     // Loaded
     this.app.info({
-      message: 'Winston Logger Loaded'
+      message: '[Loaded] Winston Logger'
     })
   }
 

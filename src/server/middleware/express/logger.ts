@@ -1,7 +1,7 @@
+import { isProd } from '!server/config/'
 import * as express from 'express'
-// import SystemLogger from 'modules/logger'
+// import SystemLogger from '!server/modules/logger'
 import * as morgan from 'morgan'
-import { isProd } from '../../config/environment'
 
 export default function logger(app: express.Application) {
   // Morgan Logger

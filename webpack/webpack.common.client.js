@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -7,7 +7,7 @@ const common = require('./webpack.common')
 
 const appEntryPath = paths.src.app.entry
 const clientAssetPath = paths.src.app.assets
-const clientBuildPath = paths.build.client._
+const clientBuildPath = paths.build.app.client
 
 // ## STYLES
 const styles = {
@@ -20,6 +20,9 @@ module.exports = merge(common, {
   output: {
     filename: '[name].js',
     path: clientBuildPath,
+  },
+  resolve: {
+    extensions: ['.png', '.jpe?g', '.gif'],
   },
   target: 'web',
   node: {

@@ -1,4 +1,4 @@
-import * as env from '!server/config/environment'
+import * as env from '!server/config/'
 
 export const SUCCESS_MESSAGE = () => {
   const SE = (t = '') => t.toUpperCase().substr(0, 4)

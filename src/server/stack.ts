@@ -1,4 +1,4 @@
-import config from './config'
+import * as config from './config'
 import middleware from './middleware'
 import service from './service'
 

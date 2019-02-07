@@ -7,11 +7,11 @@
 
 const { concurrent } = require('nps-utils') // series, setColors
 
-const BUILD_DELAY=12
+const BUILD_DELAY=5
 
 module.exports = {
-  default: concurrent.nps('server.production', 'server.open'),
-  // start: 'npx nodemon',
+  default: concurrent.nps('server.start', 'server.open'),
+  start: 'npx nodemon',
   open: 'sleep '+BUILD_DELAY+' && nps open.web',
   production: 'node build/server/main.js',
 }

@@ -11,10 +11,10 @@ module.exports = {
       script: 'sleep 5 && nps server',
       color: 'magenta.bold',
     },
-    mongo: {
-      script: 'nps mongo.server',
-      color: 'red.bold',
-    },
+    // mongo: {
+    //   script: 'nps mongo.server',
+    //   color: 'red.bold',
+    // },
     lint: {
       script: 'nps lint.watch',
       color: 'yellow.bold',
