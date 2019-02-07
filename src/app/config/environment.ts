@@ -14,7 +14,7 @@ const {
 
 const isProd = NODE_ENV === 'prod' || NODE_ENV === 'production'
 
-//
+// "https://w5xlvm3vzz.lp.gql.zone/graphql"
 const {
   GRAPHQL_ENDPOINT = '/graphql',
 } = process.env

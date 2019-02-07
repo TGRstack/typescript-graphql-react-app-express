@@ -9,6 +9,7 @@ export default function expressReact(app: express.Application) {
     // tslint:disable-next-line no-console
     logger.info(`[Loaded] React Client: ${path.relative('.', paths.client)}`)
 
+    app.use(express.static(paths.app))
     app.get('*', ({}, res: Express.Response) => {
       res.sendFile(paths.client)
     })

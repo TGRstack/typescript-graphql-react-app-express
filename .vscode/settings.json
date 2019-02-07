@@ -1,79 +1,79 @@
 {
   // HIDE THINGS THAT ARE RARELY USED
   // Turn on excludes here
-  // "files.exclude": {
-  //   // a pretty important folder
-  //   "src/server/": true,
-  //   "scripts/": true,
+  "files.exclude": {
+    // a pretty important folder
+    "src/server/": true,
+    "scripts/": true,
 
-  //   // DOT FILES
-  //   ".babelrc": true,
-  //   ".gitignore": true,
-  //   "**/.gitkeep": true,
-  //   ".npmignore": true,
-  //   ".npmrc": true,
-  //   ".nvmrc": true,
-  //   "jest.config.js": true,
-  //   "nodemon.json": true,
-  //   "package-scripts.js": true,
-  //   "package-lock.json": true,
-  //   "tsconfig.jest.json": true,
-  //   "tsconfig.json": true,
-  //   "tslint.json": true,
+    // DOT FILES
+    ".babelrc": true,
+    ".gitignore": true,
+    "**/.gitkeep": true,
+    ".npmignore": true,
+    ".npmrc": true,
+    ".nvmrc": true,
+    "jest.config.js": true,
+    "nodemon.json": true,
+    "package-scripts.js": true,
+    "package-lock.json": true,
+    "tsconfig.jest.json": true,
+    "tsconfig.json": true,
+    "tslint.json": true,
 
-  //   // GENERATED FILES
-  //   "**/*.scss.d.ts": true,
-  //   "**/*.css.d.ts": true,
+    // GENERATED FILES
+    "**/*.scss.d.ts": true,
+    "**/*.css.d.ts": true,
 
-  //   // FOLDERS
-  //   "**/.netlify": true,
-  //   "**/.vscode": true,
-  //   "**/bin": true,
-  //   "**/build": true,
-  //   "**/dist": true,
-  //   "**/db": true,
-  //   "**/jest": true,
-  //   "**/lib": true,
-  //   "**/logs": true,
-  //   "**/webpack": true,
-  //   "**/node_modules": true,    // hide all folders that doesn't start with '@t'
-  //   "**/node_modules/.*": true,
-  //   "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
-  //   "**/node_modules/@[abcdefghijklmnopqrsuvwxyz]*": true,
-  // },
-  // // Turn off excludes here
-  // "search.exclude": {
-  //   // DOT FILES
-  //   // ".babelrc": false,
-  //   // ".gitignore": false,
-  //   // "**/.gitkeep": false,
-  //   // ".npmignore": false,
-  //   // ".npmrc": false,
-  //   // ".nvmrc": false,
-  //   // "jest.config.js": false,
-  //   // "nodemon.json": false,
-  //   // "package-scripts.js": false,
-  //   // "package-lock.json": false,
-  //   // "tsconfig.jest.json": false,
-  //   "tsconfig.json": false,
-  //   "tslint.json": false,
+    // FOLDERS
+    "**/.netlify": true,
+    "**/.vscode": true,
+    "**/bin": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/db": true,
+    "**/jest": true,
+    "**/lib": true,
+    "**/logs": true,
+    "**/webpack": true,
+    "**/node_modules": true,    // hide all folders that doesn't start with '@t'
+    "**/node_modules/.*": true,
+    "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
+    "**/node_modules/@[abcdefghijklmnopqrsuvwxyz]*": true,
+  },
+  // Turn off excludes here
+  "search.exclude": {
+    // DOT FILES
+    // ".babelrc": false,
+    // ".gitignore": false,
+    // "**/.gitkeep": false,
+    // ".npmignore": false,
+    // ".npmrc": false,
+    // ".nvmrc": false,
+    // "jest.config.js": false,
+    // "nodemon.json": false,
+    // "package-scripts.js": false,
+    // "package-lock.json": false,
+    // "tsconfig.jest.json": false,
+    "tsconfig.json": false,
+    "tslint.json": false,
 
-  //   // FOLDERS
-  //   // "**/.netlify": false,
-  //   // "**/bin": false,
-  //   // "**/build": false,
-  //   // "**/dist": false,
-  //   // "**/db": false,
-  //   // "**/jest": false,
-  //   // "**/lib": false,
-  //   // "**/logs": false,
-  //   // "**/webpack": false,
+    // FOLDERS
+    // "**/.netlify": false,
+    // "**/bin": false,
+    // "**/build": false,
+    // "**/dist": false,
+    // "**/db": false,
+    // "**/jest": false,
+    // "**/lib": false,
+    // "**/logs": false,
+    // "**/webpack": false,
 
-  //   // If you hide the folder and set this to true
-  //   // you have to open the workspace settings from
-  //   // ctrl+shift+p => workspace settings
-  //   "**/.vscode": false,
-  // },
+    // If you hide the folder and set this to true
+    // you have to open the workspace settings from
+    // ctrl+shift+p => workspace settings
+    "**/.vscode": false,
+  },
 
   // ToDos:
   // https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight

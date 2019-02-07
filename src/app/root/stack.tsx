@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Middlewares from '../middleware'
-import Application from './application'
+import Appliance from './appliance'
 
 const Stack = () => (
   <React.StrictMode>
     <Middlewares>
-      <Application />
+      <Appliance />
     </Middlewares>
   </React.StrictMode>
 )

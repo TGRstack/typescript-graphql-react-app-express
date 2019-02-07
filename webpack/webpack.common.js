@@ -95,7 +95,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.csv', '.ts', '.tsx', '.js', '.json', '.jsx'],
-    modules: ['src', 'node_modules'],
+    modules: [paths.src._, 'node_modules'],
     alias,
   },
   module: {

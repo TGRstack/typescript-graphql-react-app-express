@@ -7,7 +7,7 @@ import './reset.css'
 // import Helmet from './Helmet'
 // import './fonts'
 
-export default function Application() {
+export default function Appliance() {
   return <Page>
     {/* <Helmet /> */}
     <Routes />
