@@ -1,5 +1,5 @@
 {
-  "name": "tgr-react-app",
+  "name": "tgr-react-app-express",
   "version": "1.0.0",
   "description": "React App w/ Apollo served by Express in Typescript | TGRstack",
   "main": "build/server/main.js",
