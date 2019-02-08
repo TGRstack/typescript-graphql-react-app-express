@@ -36,8 +36,18 @@ const alias =  {
   "_utils":       path.resolve(paths.src.app._, "utils/"),
 }
 
+const bulkyModules = [
+  "react",
+  "react-dom",
+  "react-router-dom",
+  "react-apollo",
+  "apollo-client",
+  "apollo-utilities",
+]
+
 module.exports = {
   alias,
+  bulkyModules,
   HOST_PATH,
   htmlPluginOptions,
   isSSL,

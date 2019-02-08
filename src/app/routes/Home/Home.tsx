@@ -1,10 +1,11 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
+import * as SC from '_modules/ui/tgr/common.scss'
 import * as S from './Home.css'
+import Logo from './Logo'
 
-// import { currentCity, forecastCity16 } from './sampleData'
-// data={openWeatherParser({currentCity, forecastCity: forecastCity16})}
+// const LazyLogo = React.lazy(() => import('./Logo'))
 
 function HomeEntrancePage() {
   return (
@@ -13,7 +14,10 @@ function HomeEntrancePage() {
         <title>Homepage</title>
       </Helmet>
 
-      Hello World
+      {/* <LazyLogo /> */}
+      <div className={SC.center}>
+        <Logo />
+      </div>
     </div>
   )
 }

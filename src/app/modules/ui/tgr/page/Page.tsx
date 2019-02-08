@@ -1,19 +1,20 @@
 import * as React from 'react'
 
-// import MobileHeader from '../mobileHeader'
+import Spinner from '../spinner'
 import Body from './Body'
 import Content from './Content'
 
 interface IProps {
   children: React.ReactChild |  React.ReactChild[],
-  // navbar?: IHeader,
 }
 
 export default function Page({children}: IProps) {
   return <Body>
-    {/* <MobileHeader /> */}
-    <Content>
-      {children}
-    </Content>
+    {/* GLOBAL LOADER TRIGGERED BY AN ASYNC ACTION */}
+    <React.Suspense fallback={<Spinner />} >
+      <Content>
+        {children}
+      </Content>
+    </React.Suspense>
   </Body>
 }

@@ -2,4 +2,4 @@ export interface IHomeCss {
 
 }
 
-export const locals: IHomeCss
+export const locals: IHomeCss;

@@ -19,5 +19,12 @@
       "!server","!app", "!modules", "!config",
       "_config",  "_assets", "_components", "_gql", "_modules", "_root", "_routes", "_types", "_utils"
     ]
+  },
+  "linterOptions": {
+    "exclude": [
+      // GENERATED FILES
+      "**/*.css.d.ts",
+      "**/*.scss.d.ts"
+    ]
   }
 }

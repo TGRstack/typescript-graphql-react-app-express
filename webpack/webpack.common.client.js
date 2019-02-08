@@ -1,24 +1,46 @@
-// const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths')
 const common = require('./webpack.common')
+const { htmlPluginOptions } = require('./config')
 
 const appEntryPath = paths.src.app.entry
 const clientAssetPath = paths.src.app.assets
 const clientBuildPath = paths.build.app.client
 
-// ## STYLES
-const styles = {
+// ## CSS-modules w/ Typescript
+// https://medium.com/@kswanie21/css-modules-sass-in-create-react-app-37c3152de9
+const moduleCss = {
   test: /\.s?css$/,
-  loaders: ["style-loader", "css-loader", "sass-loader"],
+  use: [
+    'style-loader',
+    {
+      loader: 'typings-for-css-modules-loader',
+      options: {
+        modules: true,
+        importLoaders: 2,
+        localIdentName: '[path][name]__[local]--[hash:base64:5]',
+      }
+    },
+    'sass-loader',
+  ],
 }
 
+// ## STYLES
+// support global files
+const globalCss = {
+  test: /^global.s?css/,
+  loaders: ["style-loader", 'sass-loader',],
+}
+
+
 module.exports = merge(common, {
-  entry: appEntryPath,
+  entry: {
+    app: appEntryPath,
+  },
   output: {
-    filename: '[name].js',
     path: clientBuildPath,
   },
   resolve: {
@@ -31,7 +53,8 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
-      styles,
+      globalCss,
+      moduleCss,
     ],
   },
   plugins: [
@@ -41,6 +64,9 @@ module.exports = merge(common, {
       ignore: [ '.gitkeep' ],
     }], {
       debug: 'info'
+    }),
+    new HtmlWebpackPlugin({
+      ...htmlPluginOptions,
     }),
   ],
 })

@@ -48,6 +48,7 @@ const build = (() => {
 
 module.exports = {
   _: rootPath,
+  node_modules: path.resolve(rootPath, 'node_modules'),
   build,
   src,
   STATICS,

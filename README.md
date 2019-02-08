@@ -77,11 +77,13 @@ After you've cloned this repo and ran `npm i -D`, do the following:
 in your **terminal**:
 
 ```bash
-$ nps ss
-# Starts the dev server
+$ nps
+# Starts the development environment w/ watch-rebuilds for client & server
 ```
 
 ## Commands - READ THIS
+
+Check out the shortcuts at `/scripts/shortcuts.js` like `nps lf` or `nps c`
 
 ```bash
 * nps                   # Executes the module, watching for rebuilds.
@@ -105,14 +107,15 @@ $ nps ss
 ### React
 
 - [x] 🐉  React 16+
-- [x] 👾 HMR reloads the Changed Code w/o refreshing the entire page
+- [ ] 👾 HMR reloads the Changed Code w/o refreshing the entire page
 
 ### CSS
+
+Whatever your component styling method is all projects need a way of doing some s?css.
 
 - [x] 🌅 `typings-for-css-modules-loader` replaces 'css-loader' for webpack
 - [x] 🎠 `typings-for-css-modules-loader` generates d.ts for css files
 - [x] 🌇 `sass-loader` adds vars, imports, heirarchies to css.
-- [ ] replace sass support w/ stylable.io
 
 ### Style
 
@@ -135,11 +138,14 @@ $ nps ss
 - [x] 🚦  `ts-loader` for compiling typescript
 - [ ] 🚦  `webpack-graphql-loader` for separating gql from ts files
 - [x] 💦  babel-loader for additional polyfills (browser support)
-- [ ] 😎  HappyPack
-- [ ] 🤖  Auto generated Vendor DLL for smooth development experiences
-- [ ] 🍃  Tree-shaking
+- [ ] 😎  `HappyPack` for ts-loader
+- [x] 🤖  code chunking for better production performance
+- [x] 🤖  Vendor.js for better developer experience
+- [ ] 🤖  Vendor DLL for better performance
+- [x] 🎄  Tree-shaking
 - [x] 👻  DotEnv w/ friendly features [docs: DotEnv](#docs-dotenv)
 - [x] ⛷  Module Aliasing [docs: Module Aliasing](#docs-module-aliases)
+- [x] ✨  `terser-webpack-plugin` instead of `uglifyJS`
 
 ### Utils
 

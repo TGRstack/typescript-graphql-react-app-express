@@ -36,7 +36,10 @@
     "**/lib": true,
     "**/logs": true,
     "**/webpack": true,
-    "**/node_modules": true,    // hide all folders that doesn't start with '@t'
+    // hide all folders that doesn't start with '@t' for '@tgrx'
+    // your org probably pushes packages to @org and
+    // you want to see those packages in your node_modules
+    "**/node_modules": true,
     "**/node_modules/.*": true,
     "**/node_modules/[abcdefghijklmnopqrstuvwxyz]*": true,
     "**/node_modules/@[abcdefghijklmnopqrsuvwxyz]*": true,

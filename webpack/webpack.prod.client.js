@@ -1,41 +1,59 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
-const { htmlPluginOptions } = require('./config')
 const commonClient = require('./webpack.common.client');
 
 const ProdClientConfig = merge(commonClient, {
+  mode: 'production',
+  output: {
+    filename: '[name].[contenthash:8].js',
+  },
   bail: true,
   devtool: false, // README.md
-  mode: 'production',
   plugins: [
-    new UglifyJSPlugin({
-      sourceMap: false,
-    }),
-    new HtmlWebpackPlugin({
-      ...htmlPluginOptions,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
+    new TerserPlugin({
+      parallel: true,
+      cache: true,
+      terserOptions: {
+        ecma: 6, // es2015
+        // warnings: true,
+        // ie8: true,
+        // safari10: true,
       },
+    }),
+    new webpack.optimize.AggressiveSplittingPlugin({
+      minSize: 10000,
+      maxSize: 30000,
     }),
   ],
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
+      chunks: "all",
+      minSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity,
+      name: true,
       cacheGroups: {
-        commons: {
+        default: {
+          reuseExistingChunk: true,
+          priority: -20,
+          minChunks: 2,
+        },
+        vendors: {
+          priority: -10,
+          reuseExistingChunk: true,
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
         }
       }
     }

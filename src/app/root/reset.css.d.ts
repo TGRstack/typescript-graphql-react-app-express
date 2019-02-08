@@ -2,4 +2,4 @@ export interface IResetCss {
 
 }
 
-export const locals: IResetCss
+export const locals: IResetCss;
