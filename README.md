@@ -1,6 +1,9 @@
-<p align='center'>
+<p>
   <h1 align='center'>Typescript GraphQL React App w/ Express | TGRStack</h1>
 </p>
+
+**Development and Production Ready |⸰| [VSCode Extensions](https://marketplace.visualstudio.com/search?term=tgrstack&target=VSCode&category=All%20categories&sortBy=Relevance)**
+ <!-- |⸰| Dockers for Dev and Prod -->
 
 [![Known Vulnerabilities](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express/badge.svg)](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express)
 
@@ -23,7 +26,60 @@
 
 ## About
 
-This starter kit is a launching point for TS React module development. Running the build script compiles `src/` into a build that is ready to be deployed to a server. This module is part of a collection of uniformly built starter-kits designed for large-scale application development with TypeScript, GraphQL, and React. Find these, articles, and examplse at [www.TGRStack.com](http://www.TGRStack.com). Skip to the bottom for links to a series of tutorials that walkthrough the creation of this module.
+**Expose all the knobs  |⸰| As lean as a racehorse can get |⸰| Fork and keep as an upstream, then create your own endpoints**
+
+The skeleton-tgr-app-express is an express server that loads a React App. This skeleton demonstrates building a server and client in a single 'fullstack' repo. This is especially useful for developing horizontally scaling webservices with Docker. It is a combination of the work done in a react-app skeleton and an express-endpoint skeleton.
+
+**The point of view prioritized is app development with very rare changes to anything outside**
+
+1) the express service is based on [typescript-apollo-endpoint](https://github.com/TGRstack/typescript-apollo-endpoint)
+2) the react app is based on [typescript-graphql-react-app](https://github.com/TGRstack/typescript-graphql-react-app)
+3) webpack compiles the app and server, and then express serves the app
+4) the server and app are similarly structured with a `stack.ts`, `config`, and `middleware`
+
+## TGR Packages (npm - @tgrx)
+
+```bash
+  "dependencies": {
+    "@tgrx/apollo-link-state": "0.4.3",
+  },
+  "devDependencies": {
+    "@tgrx/tslint-config-tgr": "5.0.0", # TGR tslint settings for minimial clutter
+  }
+```
+
+## Upgrading your Skeleton from an upstream
+
+[Github Documentation](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/)
+
+### Initial Setup
+
+1) First, clone this repo to your local machine
+2) Change the remote name `git remote rename origin upstream`
+3) Create a new repository in github/gitlab
+4) Add the new remote `git remote add origin <your-new-address>`
+
+### Usage
+
+When updates for the upstream are available, merge them into your skeleton
+
+```bash
+git pull upstream master
+# Handle merge conflicts if necessary
+git commit # commit the changes if necessary
+git push origin master
+```
+
+## Developing a TS-Service
+
+After you've cloned this repo and ran `npm i -D`, do the following:
+
+in your **terminal**:
+
+```bash
+$ nps ss
+# Starts the dev server
+```
 
 ## Commands - READ THIS
 
@@ -119,20 +175,44 @@ Open package.json and reset following fields:
 - license ( use whatever you want )
 ```
 
-Now go make some changes to `src/index.ts` to see the tooling in action.
+Now go make some changes to `src/app/index.ts` to see the tooling in action.
 
-## File Structure
+# SRC structure
+
+Everything in this source directory is **typescript**, built by **webpack** and compiled into  **/build**
 
 ```text
-src/
-├── app/          - global app stuff
-├── components/   - the pieces used in the routes, abstracts modules
-├── middlewares/  - third-party HOC functionality (apollo, router)
-└── modules/      - first-party modules
-    └── ui        - prototyping the module before extracting it to its own module
-├── routes/       - define page for a route
-├── types/        - ts modules, common, interfaces
-└── utils/      - useful functions
+.
+├── app/
+│   ├── index.tsx             # app entry point (webpack client build)
+│   ├── index.template.html   # client entry point (express html served)
+│   ├── assets/               # static files
+│   ├── components/
+│   ├── config/               # client config
+│   ├── gql/                  # replaces redux
+│   ├── middleware/
+│   ├── modules/              # first-party modules (co-developed)
+│   │   └── some-lib          # pre-cursor to extracting to a standalone module
+│   ├── root/                 # global definitions
+│   │   ├── application.tsx
+│   │   ├── stack.tsx
+│   │   ├── global.scss
+│   │   └── theme.scss
+│   ├── routes/               # each route can have multiple viewports
+│   ├── types/                # appp ts modules, common, interfaces
+│   └── utils/                # useful functions
+│
+└── server/
+    ├── index.ts              # build/service entry point
+    ├── stack.ts              # import service & middlewares
+    ├── __tests__/            # tests for stack.ts
+    ├── config/               # server configs and vars
+    ├── middlewares/          # third-party HOC functionality (apollo, loggers, routers)
+    ├── modules/              # first-party modules (co-developed)
+    │   └── some-lib          # pre-cursor to extracting to a standalone module
+    ├── service/              # service initialization (express, apollo, storybook)
+    ├── types/                # server ts modules, common, interfaces
+    └── utils/                # useful functions
 ```
 
 ## Stack
@@ -169,3 +249,13 @@ Module aliases are defined in 2 places because of an issue w/ [tsconfig-paths-we
 
 To change scripts modify `/scripts/` and use `nps <command>` instead of `npm run <command>`.
 The entry point for nps is `./package-scripts.js` which routes to `scripts/index.js` which routes to the friendlier `scripts/__index.js`.
+
+# FAQ
+
+## Where are all the files in my IDE?
+
+You must be using vscode! I have configured vscode workspace settings to hide everything from the filebrowser that you're unlikely to touch in day-to-day development.
+
+Many files are still accessible through search (ctrl+p), such as the `./vscode/settings.json` file where you can comment/uncomment my decisions and make everything your own.
+
+P.S. you may like the tgrstack snippets extension since its formatted following the linting preferneces here.
