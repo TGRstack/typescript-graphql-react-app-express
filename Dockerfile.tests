@@ -1,0 +1,14 @@
+# RUN TESTS
+FROM node:11.9.0 as base
+RUN npm install -g nps nps-utils
+WORKDIR /usr/src/
+
+COPY . .
+
+## Install app dependencies
+RUN npm i -D
+
+# RUN TESTS
+RUN nps test
+
+CMD ["bash"]

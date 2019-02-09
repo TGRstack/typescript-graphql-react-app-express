@@ -1,0 +1,33 @@
+## RUN TESTS
+FROM node:11.9.0 as build
+RUN npm install -g nps nps-utils
+WORKDIR /usr/src/
+
+COPY . ./
+
+## Build code for production
+COPY .env.* ./
+## first available of [prod, dev, example]
+RUN /bin/bash -c "[ -f .env.example ] && mv .env.example ./.env; exit 0"
+RUN /bin/bash -c "[ -f .env.development ] && mv .env.development ./.env; exit 0"
+RUN /bin/bash -c "[ -f .env.production ] && mv .env.production ./.env; exit 0"
+
+
+## Install build dependencies
+RUN npm i -D
+
+## Build application
+RUN nps build.production.multi
+
+## Only prod resources
+FROM node:11.9.0 as app
+WORKDIR /usr/src/
+
+COPY --from=build /usr/src/build ./build
+COPY package.json ./
+RUN npm install --production
+
+EXPOSE 80
+# EXPOSE 443  SSL
+# EXPOSE 3000 DEVELOPMENT
+CMD [ "npm", "run", "start:prod" ]

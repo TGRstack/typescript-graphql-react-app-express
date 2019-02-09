@@ -90,6 +90,7 @@
   },
   "scripts": {
     "start": "nps",
+    "start:prod": "node build/server/main.js",
     "test": "nps test",
     "postinstall": "nps postinstall",
     "help": "nps help"
