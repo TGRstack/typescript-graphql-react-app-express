@@ -2,7 +2,7 @@
   <h1 align='center'>Typescript GraphQL React App w/ Express | TGRStack</h1>
 </p>
 
-**Development and Production Ready |⸰| [VSCode Extensions](https://marketplace.visualstudio.com/search?term=tgrstack&target=VSCode&category=All%20categories&sortBy=Relevance)|⸰| Dockers for Dev and Prod**
+**Development and Production Ready |⸰| [VSCode Extensions](https://marketplace.visualstudio.com/search?term=tgrstack&target=VSCode&category=All%20categories&sortBy=Relevance)|⸰| Dockers for CI/CD**
 
 [![Known Vulnerabilities](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express/badge.svg)](https://snyk.io/test/github/TGRstack/typescript-graphql-react-app-express)
 

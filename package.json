@@ -7,7 +7,7 @@
   "dependencies": {
     "@tgrx/apollo-link-state": "0.4.3",
     "@tgrx/gx": "1.0.0-rc4",
-    "apollo-cache-inmemory": "1.2.10",
+    "apollo-cache-inmemory": "1.4.2",
     "apollo-client": "2.4.12",
     "apollo-link": "1.2.8",
     "apollo-link-error": "1.1.7",
@@ -98,8 +98,8 @@
   "config": {
     "cz-emoji": {
       "scopes": [
-        "$user",
-        "$dev",
+        "$app",
+        "$srv",
         "$ops"
       ]
     },
