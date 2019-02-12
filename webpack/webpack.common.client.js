@@ -36,6 +36,13 @@ const globalCss = {
 }
 
 
+// ISSUE: https://github.com/apollographql/apollo-client/issues/4421
+const fixApolloInmemoryCache = {
+  test: /\.mjs$/,
+  include: /node_modules/,
+  type: 'javascript/auto',
+}
+
 module.exports = merge(common, {
   entry: {
     app: appEntryPath,
@@ -53,6 +60,7 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
+      fixApolloInmemoryCache,
       globalCss,
       moduleCss,
     ],
